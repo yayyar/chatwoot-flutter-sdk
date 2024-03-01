@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:chatwoot_sdk/chatwoot_sdk.dart';
 import 'package:chatwoot_sdk/ui/webview_widget/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_flutter_android/webview_flutter_android.dart'
     as webview_flutter_android;
@@ -126,9 +125,5 @@ class _WebviewState extends State<Webview> {
     return _controller != null
         ? WebViewWidget(controller: _controller!)
         : SizedBox();
-  }
-
-  _goToUrl(String url) {
-    launchUrl(Uri.parse(url));
   }
 }
