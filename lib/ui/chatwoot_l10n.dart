@@ -42,6 +42,9 @@ class ChatwootL10n extends ChatL10n {
       this.conversationResolvedMessage =
           "Your ticket has been marked as resolved"})
       : super(
+            and: "",
+            isTyping: "",
+            others: "",
             attachmentButtonAccessibilityLabel:
                 attachmentButtonAccessibilityLabel,
             emptyChatPlaceholder: emptyChatPlaceholder,
