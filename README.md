@@ -28,7 +28,7 @@ to your project's [pubspec.yml](https://flutter.dev/docs/development/tools/pubsp
 ```dart
 import 'dart:io';
 
-import 'package:chatwoot_sdk/chatwoot_sdk.dart';
+import 'package:chatwoot_sdk_support/chatwoot_sdk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image/image.dart' as image;
