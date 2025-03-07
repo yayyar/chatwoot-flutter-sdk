@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_flutter_android/webview_flutter_android.dart'
     as webview_flutter_android;
+import 'web_error_view.dart';
 
 ///Chatwoot webview widget
 /// {@category FlutterClientSdk}
@@ -130,10 +131,12 @@ class _WebviewState extends State<Webview> {
   }
 
   void onRetry(){
-    setState(() {
-      hasError = false;
-    });
-    _controller.loadRequest(Uri.parse(webviewUrl));
+    if(_controller != null){
+      setState(() {
+        hasError = false;
+      });
+      _controller!.loadRequest(Uri.parse(webviewUrl));
+    }
   }
 
   @override
