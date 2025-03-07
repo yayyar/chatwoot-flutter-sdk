@@ -132,7 +132,7 @@ class _WebviewState extends State<Webview> {
     setState(() {
       hasError = false;
     });
-    _controller.loadRequest(Uri.parse(widget.url));
+    _controller.loadRequest(Uri.parse(webviewUrl));
   }
 
   @override
