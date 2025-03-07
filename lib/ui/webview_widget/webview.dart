@@ -58,6 +58,9 @@ class Webview extends StatefulWidget {
 
 class _WebviewState extends State<Webview> {
   WebViewController? _controller;
+  bool hasError = false;
+  String errorMessage = "Something went wrong! Please try again.";
+
   @override
   void initState() {
     super.initState();
@@ -76,6 +79,7 @@ class _WebviewState extends State<Webview> {
               onProgress: (int progress) {
                 // Update loading bar.
                 widget.onLoadProgress?.call(progress);
+                hasError = false;
               },
               onPageStarted: (String url) {
                 widget.onLoadStarted?.call();
@@ -83,7 +87,11 @@ class _WebviewState extends State<Webview> {
               onPageFinished: (String url) async {
                 widget.onLoadCompleted?.call();
               },
-              onWebResourceError: (WebResourceError error) {},
+              onWebResourceError: (WebResourceError error) {
+                Future.delayed(const Duration(milliseconds: 100), () {
+                  hasError = true;
+                });
+              },
               onNavigationRequest: (NavigationRequest request) {
                 // _goToUrl(request.url);
                 return NavigationDecision.navigate;
@@ -120,10 +128,19 @@ class _WebviewState extends State<Webview> {
     });
   }
 
+  void onRetry(){
+    setState(() {
+      hasError = false;
+    });
+    _controller.loadRequest(Uri.parse(widget.url));
+  }
+
   @override
   Widget build(BuildContext context) {
     return _controller != null
-        ? WebViewWidget(controller: _controller!)
+        ? hasError
+            ? WebErrorView(onRetry: onRetry, errorMessage: errorMessage)
+            : WebViewWidget(controller: _controller!)
         : SizedBox();
   }
 }
