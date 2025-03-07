@@ -60,12 +60,13 @@ class _WebviewState extends State<Webview> {
   WebViewController? _controller;
   bool hasError = false;
   String errorMessage = "Something went wrong! Please try again.";
+  String webviewUrl = "";
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      String webviewUrl = widget.widgetUrl;
+      webviewUrl = widget.widgetUrl;
       final cwCookie = await StoreHelper.getCookie();
       if (cwCookie.isNotEmpty) {
         webviewUrl = "${webviewUrl}&cw_conversation=${cwCookie}";
