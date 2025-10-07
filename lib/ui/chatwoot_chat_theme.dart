@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_ui/flutter_chat_ui.dart';
+// import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 
 const CHATWOOT_COLOR_PRIMARY = Color(0xff1f93ff);
 const CHATWOOT_BG_COLOR = Color(0xfff4f6fb);
 const CHATWOOT_AVATAR_COLORS = [CHATWOOT_COLOR_PRIMARY];
 
+const Color neutral0 = Color(0xFF000000);
+const Color neutral1 = Color(0xFF111111);
+const Color neutral2 = Color(0xFF222222);
+const Color neutral7 = Color(0xFF777777);
+const Color neutral7WithOpacity = Color(0x77777777);
+const Color error = Color(0xFFFF0000);
+const Color primary = Color(0xFF1F93FF);
+
 /// Default chatwoot chat theme which extends [ChatTheme]
 @immutable
-class ChatwootChatTheme extends ChatTheme {
+class ChatwootChatTheme {
   /// Creates a chatwoot chat theme. Use this constructor if you want to
   /// override only a couple of variables.
   const ChatwootChatTheme({
@@ -108,77 +116,5 @@ class ChatwootChatTheme extends ChatTheme {
       fontWeight: FontWeight.w800,
       height: 1.333,
     ),
-  }) : super(
-          messageInsetsHorizontal: 0.0,
-          messageInsetsVertical: 0.0,
-          messageMaxWidth: 0.0,
-          systemMessageTheme: const SystemMessageTheme(
-              margin: EdgeInsets.only(bottom: 24, top: 8, left: 8, right: 8),
-              textStyle: TextStyle(
-                  color: neutral2,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w800,
-                  height: 1.333)),
-          typingIndicatorTheme: const TypingIndicatorTheme(
-              animatedCirclesColor: neutral1,
-              animatedCircleSize: 5.0,
-              bubbleBorder: BorderRadius.all(Radius.circular(27.0)),
-              bubbleColor: neutral7,
-              countAvatarColor: primary,
-              countTextColor: secondary,
-              multipleUserTextStyle: TextStyle(
-                  fontSize: 12, fontWeight: FontWeight.w500, color: neutral2)),
-          unreadHeaderTheme: const UnreadHeaderTheme(
-              color: secondary,
-              textStyle: TextStyle(
-                  color: neutral2,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
-                  height: 1.333)),
-          userAvatarImageBackgroundColor: Colors.black,
-          statusIconPadding: const EdgeInsets.all(0.0),
-          sentEmojiMessageTextStyle: userNameTextStyle,
-          sendButtonMargin: const EdgeInsets.all(0.0),
-          receivedEmojiMessageTextStyle: userNameTextStyle,
-          inputPadding: const EdgeInsets.all(0.0),
-          inputTextDecoration: const InputDecoration(),
-          inputMargin: const EdgeInsets.all(0.0),
-          inputElevation: 0.0,
-          inputSurfaceTintColor: Colors.black,
-          attachmentButtonMargin: const EdgeInsets.all(0.0),
-          dateDividerMargin: const EdgeInsets.all(0.0),
-          attachmentButtonIcon: attachmentButtonIcon,
-          backgroundColor: backgroundColor,
-          dateDividerTextStyle: dateDividerTextStyle,
-          deliveredIcon: deliveredIcon,
-          documentIcon: documentIcon,
-          emptyChatPlaceholderTextStyle: emptyChatPlaceholderTextStyle,
-          errorColor: errorColor,
-          errorIcon: errorIcon,
-          inputBackgroundColor: inputBackgroundColor,
-          inputBorderRadius: inputBorderRadius,
-          inputTextColor: inputTextColor,
-          inputTextStyle: inputTextStyle,
-          messageBorderRadius: messageBorderRadius,
-          primaryColor: primaryColor,
-          receivedMessageBodyTextStyle: receivedMessageBodyTextStyle,
-          receivedMessageCaptionTextStyle: receivedMessageCaptionTextStyle,
-          receivedMessageDocumentIconColor: receivedMessageDocumentIconColor,
-          receivedMessageLinkDescriptionTextStyle:
-              receivedMessageLinkDescriptionTextStyle,
-          receivedMessageLinkTitleTextStyle: receivedMessageLinkTitleTextStyle,
-          secondaryColor: secondaryColor,
-          seenIcon: seenIcon,
-          sendButtonIcon: sendButtonIcon,
-          sendingIcon: sendingIcon,
-          sentMessageBodyTextStyle: sentMessageBodyTextStyle,
-          sentMessageCaptionTextStyle: sentMessageCaptionTextStyle,
-          sentMessageDocumentIconColor: sentMessageDocumentIconColor,
-          sentMessageLinkDescriptionTextStyle:
-              sentMessageLinkDescriptionTextStyle,
-          sentMessageLinkTitleTextStyle: sentMessageLinkTitleTextStyle,
-          userAvatarNameColors: userAvatarNameColors,
-          userAvatarTextStyle: userAvatarTextStyle,
-          userNameTextStyle: userNameTextStyle,
-        );
+  });
 }
