@@ -33,6 +33,9 @@ class Webview extends StatefulWidget {
   /// See [ChatwootWidget.onLoadCompleted]
   final void Function()? onLoadCompleted;
 
+  /// See [ChatwootWidget.onUrlChange]
+  final void Function(UrlChange)? onUrlChange;
+
   Webview(
       {Key? key,
       required String websiteToken,
@@ -44,7 +47,8 @@ class Webview extends StatefulWidget {
       this.onAttachFile,
       this.onLoadStarted,
       this.onLoadProgress,
-      this.onLoadCompleted})
+      this.onLoadCompleted,
+      this.onUrlChange})
       : super(key: key) {
     widgetUrl =
         "${baseUrl}/widget?website_token=${websiteToken}&locale=${locale}";
@@ -82,6 +86,9 @@ class _WebviewState extends State<Webview> {
                 // Update loading bar.
                 widget.onLoadProgress?.call(progress);
                 hasError = false;
+              },
+              onUrlChange: (UrlChange change) {
+                widget.onUrlChange?.call(change);
               },
               onPageStarted: (String url) {
                 widget.onLoadStarted?.call();

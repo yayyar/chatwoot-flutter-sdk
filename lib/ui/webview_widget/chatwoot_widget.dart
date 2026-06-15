@@ -34,6 +34,9 @@ class ChatwootWidget extends StatefulWidget {
 
   ///Widget Load completed event
   final void Function()? onLoadCompleted;
+
+  ///Widget URL change event
+  final void Function(UrlChange)? onUrlChange;
   ChatwootWidget(
       {Key? key,
       required this.websiteToken,
@@ -45,7 +48,8 @@ class ChatwootWidget extends StatefulWidget {
       this.onAttachFile,
       this.onLoadStarted,
       this.onLoadProgress,
-      this.onLoadCompleted})
+      this.onLoadCompleted,
+      this.onUrlChange})
       : super(key: key);
 
   @override
@@ -71,6 +75,7 @@ class _ChatwootWidgetState extends State<ChatwootWidget> {
       onLoadStarted: widget.onLoadStarted,
       onLoadCompleted: widget.onLoadCompleted,
       onLoadProgress: widget.onLoadProgress,
+      onUrlChange: widget.onUrlChange,
     );
   }
 }
