@@ -8,6 +8,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_flutter_android/webview_flutter_android.dart'
     as webview_flutter_android;
 import 'web_error_view.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 ///Chatwoot webview widget
 /// {@category FlutterClientSdk}
