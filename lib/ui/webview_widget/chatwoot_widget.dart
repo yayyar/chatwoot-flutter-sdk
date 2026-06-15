@@ -1,6 +1,7 @@
 import 'package:chatwoot_sdk_support/data/local/entity/chatwoot_user.dart';
 import 'package:chatwoot_sdk_support/ui/webview_widget/webview.dart';
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 ///ChatwootWidget
 /// {@category FlutterClientSdk}
