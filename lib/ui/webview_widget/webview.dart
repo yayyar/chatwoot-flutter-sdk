@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -33,6 +34,10 @@ class Webview extends StatefulWidget {
   /// See [ChatwootWidget.onLoadCompleted]
   final void Function()? onLoadCompleted;
 
+  /// See [ChatwootWidget.onNavigationRequest]
+  final FutureOr<NavigationDecision> Function(NavigationRequest request)?
+      onNavigationRequest;
+
   Webview(
       {Key? key,
       required String websiteToken,
@@ -44,7 +49,8 @@ class Webview extends StatefulWidget {
       this.onAttachFile,
       this.onLoadStarted,
       this.onLoadProgress,
-      this.onLoadCompleted})
+      this.onLoadCompleted,
+      this.onNavigationRequest})
       : super(key: key) {
     widgetUrl =
         "${baseUrl}/widget?website_token=${websiteToken}&locale=${locale}";
@@ -95,8 +101,8 @@ class _WebviewState extends State<Webview> {
                 });
               },
               onNavigationRequest: (NavigationRequest request) {
-                // _goToUrl(request.url);
-                return NavigationDecision.navigate;
+                return widget.onNavigationRequest?.call(request) ??
+                    NavigationDecision.navigate;
               },
             ),
           )

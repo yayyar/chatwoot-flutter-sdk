@@ -1,6 +1,8 @@
+import 'dart:async';
 import 'package:chatwoot_sdk_support/data/local/entity/chatwoot_user.dart';
 import 'package:chatwoot_sdk_support/ui/webview_widget/webview.dart';
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 ///ChatwootWidget
 /// {@category FlutterClientSdk}
@@ -34,6 +36,10 @@ class ChatwootWidget extends StatefulWidget {
 
   ///Widget Load completed event
   final void Function()? onLoadCompleted;
+
+  ///Widget navigation request event
+  final FutureOr<NavigationDecision> Function(NavigationRequest request)?
+      onNavigationRequest;
   ChatwootWidget(
       {Key? key,
       required this.websiteToken,
@@ -45,7 +51,8 @@ class ChatwootWidget extends StatefulWidget {
       this.onAttachFile,
       this.onLoadStarted,
       this.onLoadProgress,
-      this.onLoadCompleted})
+      this.onLoadCompleted,
+      this.onNavigationRequest})
       : super(key: key);
 
   @override
@@ -71,6 +78,7 @@ class _ChatwootWidgetState extends State<ChatwootWidget> {
       onLoadStarted: widget.onLoadStarted,
       onLoadCompleted: widget.onLoadCompleted,
       onLoadProgress: widget.onLoadProgress,
+      onNavigationRequest: widget.onNavigationRequest,
     );
   }
 }
